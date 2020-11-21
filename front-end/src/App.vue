@@ -36,25 +36,30 @@
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
     </v-app-bar> -->
+    <v-btn @click="toggleTheme" text rounded>toggle Theme</v-btn>
     <v-main>
-      <Home/>
     <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import Home from '@/views/Home';
+// import Home from '@/views/Home';
 
 export default {
   name: 'App',
 
   components: {
-    Home,
+    // Home,
   },
 
   data: () => ({
     //
   }),
+  methods:{
+    toggleTheme(){
+      this.$vuetify.theme.dark=!this.$vuetify.theme.dark
+    }
+  }
 };
 </script>
