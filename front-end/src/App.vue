@@ -1,53 +1,14 @@
 <template>
 <v-app id="inspire">
+  <v-icon>fas fa-list</v-icon>
     <!-- <v-system-bar app>
       <v-spacer></v-spacer>
-
-      <v-icon>mdi-square</v-icon>
-
-      <v-icon>mdi-circle</v-icon>
-
-      <v-icon>mdi-triangle</v-icon>
+<v-icon>fas fa-list</v-icon>
     </v-system-bar> -->
+      <!-- <v-btn v- @click="Navigation" text rounded>Navigation</v-btn> -->
       <v-btn @click="toggleTheme" text rounded>toggle Theme</v-btn>
-
-    <v-navigation-drawer
-      v-model="drawer"
-      permanent
-      expand-on-hover
-      app
-    >
-      <v-sheet
-        color="grey lighten-4"
-        class="pa-4"
-      >
-        <v-avatar
-          class="mb-4"
-          color="grey darken-1"
-          size="64"
-        ></v-avatar>
-
-        <div>jy5031le@gmail.com</div>
-      </v-sheet>
-
-      <v-divider></v-divider>
-
-      <v-list>
-        <v-list-item
-          v-for="[icon, text] in links"
-          :key="icon"
-          link
-        >
-          <v-list-item-icon>
-            <v-icon>{{ icon }}</v-icon>
-          </v-list-item-icon>
-
-          <v-list-item-content>
-            <v-list-item-title @click="move(text)">{{ text }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
+    <navigation />
+    
     
     <v-main>
       <v-container
@@ -56,6 +17,8 @@
       >
       <router-view></router-view>
         <v-row>
+          11
+          <v-icon>fas fa-list</v-icon>
           <v-col
             v-for="card in cards"
             :key="card"
@@ -104,30 +67,28 @@
 </template>
 
 <script>
-// import Home from '@/views/Home';
+import Navigation from '@/components/common/Navigation.vue'
+
 
 export default {
   name: 'App',
 
   components: {
-    // Home,
+    Navigation
   },
 
   data: () => ({
      cards: ['Today', 'Yesterday'],
-      drawer: null,
-      links: [
-        ['mdi-inbox-arrow-down', 'Home'],
-        ['mdi-send', 'About'],
-        ['mdi-delete', 'Trash'],
-        ['mdi-alert-octagon', 'Spam'],
-      ],
+      // drawer: null,
+      // links: [
+      //   ['mdi-inbox-arrow-down', 'Home'],
+      //   ['mdi-send', 'About'],
+      //   ['mdi-delete', 'Trash'],
+      //   ['mdi-alert-octagon', 'Spam'],
+      // ],
   }),
   methods:{
-    move(m){
-      // alert(m)
-      this.$router.push(`${m}`)
-    },
+
     toggleTheme(){
       this.$vuetify.theme.dark=!this.$vuetify.theme.dark
     }
